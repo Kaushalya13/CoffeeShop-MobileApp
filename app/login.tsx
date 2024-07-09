@@ -11,14 +11,6 @@ export default function login() {
         <Button title='Login' color="black" />
       </View>
 
-
-      {/* <SafeAreaView>
-        <TextInput
-          style={style.input}
-          placeholder='Enter your name'
-        />
-      </SafeAreaView> */}
-
     </View>
   )
 }
@@ -43,14 +35,6 @@ const style=StyleSheet.create({
 
   logo:{
     width:20
-  },
-
-  input:{
-    height: 40,
-    margin: 50,
-    borderWidth: 0.5,
-    padding: 10,
-    top:400,
-    backgroundColor:'yellow',
   }
+
 })
