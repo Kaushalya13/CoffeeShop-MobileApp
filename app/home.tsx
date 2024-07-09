@@ -9,20 +9,20 @@ export default function home() {
     <SafeAreaView>
         <TextInput
             style={style.input}
-            placeholder='hiiiiiiiiiiiii'
+            placeholder='All to know...'
         />
 
         <TextInput
             style={style.input}
-            placeholder='hiiiiiiiiiiiii'
+            placeholder='Tranding Products'
         />
         <TextInput
             style={style.input}
-            placeholder='hiiiiiiiiiiiii'
+            placeholder='Show Items'
         />
         <TextInput
             style={style.input}
-            placeholder='hiiiiiiiiiiiii'
+            placeholder='Seles Products'
         />
       </SafeAreaView>
     </View>
