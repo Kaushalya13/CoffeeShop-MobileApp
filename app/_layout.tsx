@@ -6,6 +6,7 @@ export default function layout() {
     <Tabs>
       <Tabs.Screen name="login"/>      
       <Tabs.Screen name="home"/>      
+      <Tabs.Screen name="product"/>      
 
     </Tabs>
   )
