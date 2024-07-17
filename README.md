@@ -51,7 +51,7 @@ Join our community of developers creating universal apps.
 
 ![index](https://github.com/user-attachments/assets/ae7e130a-ad2d-4168-8040-83766ee7f426)
 
-![login](https://github.com/user-attachments/assets/5da54513-28cb-42f2-ab26-0ad142f7639b)
+![Login](https://github.com/user-attachments/assets/e73468cc-88d2-4411-ae35-276e900521e7)
 
 ![Sign up](https://github.com/user-attachments/assets/e6c96cae-c367-4cbb-a34a-9aa9ef007331)
 
