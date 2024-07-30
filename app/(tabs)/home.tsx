@@ -1,10 +1,15 @@
 import React from 'react'
 import { View, Text ,StyleSheet,SafeAreaView,TextInput,ScrollView,FlatList} from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
-import { Link,router } from 'expo-router';
+import { Link,router, Stack } from 'expo-router';
+import PagerView from 'react-native-pager-view';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
+type HomeProps = {
+  navigation: NavigationProp<ParamListBase>;
+};
 
-export default function home() {
+export default function home({navigation}:HomeProps) {
     const DATA = [
         {
           id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -12,125 +17,103 @@ export default function home() {
         },
         {
           id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-          title: 'Second Item',
+          title: 'Tranding Item',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d72',
-          title: 'Third Item',
+          title: 'Show Items',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d73',
-          title: 'Third Item',
+          title: 'Show Item',
         },
         {
             id: '58694a0f-3da1-471f-bd96-145571e29d74',
-            title: 'Third Item',
+            title: 'Show Item',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d75',
-          title: 'Third Item',
+          title: 'Show Item',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d76',
-          title: 'Third Item',
+          title: 'Show Item',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d77',
-          title: 'Third Item',
+          title: 'Show Item',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d78',
-          title: 'Third Item',
+          title: 'Show Item',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d79',
-          title: 'Third Item',
+          title: 'Show Item',
         },
         {
           id: '58694a0f-3da1-471f-bd96-145571e29d71',
-          title: 'Third Item',
+          title: 'Show Item',
         },
     ];
 
   return (
     <View style={style.main}>
-      <Text style={style.login}>Welcome to Home Page!</Text>
+        
+      <Text style={style.login}>It's time for coffee break!</Text>
 
       <View style={style.searchContainer}>
             <AntDesign name="search1" size={24} color='black' />
             <TextInput placeholder="Choose Your drink..." style={style.searchInput} />
       </View>
+      {/* <Link style={style.link} 
+            href="/hot_coffee">Hot Coffee
+      </Link> */}
 
-      <Link style={style.link} 
-          href="/hot_coffee">Hot Coffee
-      </Link>
+      <View style={style.con}>
+        <PagerView style={style.con} initialPage={0}>
+            <View style={style.page} key="1">
+                <Text style={style.link}>Hot Coffee</Text>
+                    <ScrollView style={style.scrollview}>
+                        <SafeAreaView>
+                            <FlatList
+                                data={DATA}
+                                renderItem={({item}) =><Text style={style.nametext}>{item.title} </Text>}
+                                keyExtractor={item => item.id}
+                            />
+                        </SafeAreaView>
+                    </ScrollView>
+                
+            </View>
 
-      <Link style={style.link01} 
-          href="/hot_coffee">Cold Coffee
-      </Link>
+            <View style={style.page} key="2">
+                <Text style={style.link}>Cold Coffee</Text>
+                    <ScrollView style={style.scrollview}>
+                        <SafeAreaView>
+                            <FlatList
+                                data={DATA}
+                                renderItem={({item}) =><Text style={style.nametext}>{item.title} </Text>}
+                                keyExtractor={item => item.id}
+                            />
+                        </SafeAreaView>
+                    </ScrollView>
+            </View>
 
-      <Link style={style.link02} 
-          href="/hot_coffee">Others
-      </Link>
-
-      <ScrollView style={style.scrollview}>
-        <SafeAreaView>
-            <FlatList
-                data={DATA}
-                renderItem={({item}) =><Text style={style.nametext}>{item.title} </Text>}
-                keyExtractor={item => item.id}
-            />
-            {/* <TextInput
-                style={style.input}
-                placeholder='All to know...'
-            />
-
-            <TextInput
-                style={style.input}
-                placeholder='Tranding Products'
-            />
-            <TextInput
-                style={style.input}
-                placeholder='Show Items'
-            />
-            <TextInput
-                style={style.input}
-                placeholder='Seles Products'
-            />
-             <TextInput
-                style={style.input}
-                placeholder='Seles '
-            />
-             <TextInput
-                style={style.input}
-                placeholder='Seles Products'
-            />
-             <TextInput
-                style={style.input}
-                placeholder='Seles Products'
-            />
-             <TextInput
-                style={style.input}
-                placeholder='Seles Products'
-            />
-             <TextInput
-                style={style.input}
-                placeholder='Seles Products'
-            />
-             <TextInput
-                style={style.input}
-                placeholder='Seles Products'
-            />
-             <TextInput
-                style={style.input}
-                placeholder='Seles Products'
-            />
-             <TextInput
-                style={style.input}
-                placeholder='Seles Products'
-            /> */}
-        </SafeAreaView>
-      </ScrollView>
+            <View style={style.page} key="3">
+                <Text style={style.link}>Cold Coffee</Text>
+                    <ScrollView style={style.scrollview}>
+                        <SafeAreaView>
+                            <FlatList
+                                data={DATA}
+                                renderItem={({item}) =><Text style={style.nametext}>{item.title} </Text>}
+                                keyExtractor={item => item.id}
+                            />
+                        </SafeAreaView>
+                    </ScrollView>
+            </View>
+        </PagerView>
+      </View>
+      
     
     </View>
   )
@@ -146,7 +129,8 @@ const style = StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
         marginTop: 40,
-        marginLeft: 70 
+        marginLeft: 30,
+        fontFamily:"serif"
     },
     input:{
         height: 100,
@@ -173,16 +157,18 @@ const style = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 25,
         paddingHorizontal: 10,
-        margin: 10
+        margin: 10,
+        marginTop: 25
     },
     searchInput: {
         flex: 1,
         marginLeft: 10
     },
     link:{
-        fontSize:22,
-        marginLeft:40,
-        top:25
+        fontSize:30,
+        marginLeft:0,
+        top:0
+        
     },
     link01:{
         fontSize:22,
@@ -200,10 +186,17 @@ const style = StyleSheet.create({
         height:100,
         width:300,
         alignItems: "center",
-        marginLeft: 50,
+        marginLeft: 60,
         fontFamily: "serif",
         fontWeight: "bold",
         marginTop: 20,
         backgroundColor:"white",
-      }
+    },
+    con: {
+        flex: 1,
+      },
+      page: {
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
 })

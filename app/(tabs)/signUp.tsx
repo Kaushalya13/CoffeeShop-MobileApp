@@ -1,8 +1,13 @@
 import React from 'react'
 import {View,Text,Button,TouchableOpacity,StyleSheet,Image,TextInput} from 'react-native'
 import { router,Link } from 'expo-router';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
-export default function sign_up() {
+type SignUpProps = {
+  navigation: NavigationProp<ParamListBase>;
+};
+
+export default function signUp({navigation}:SignUpProps) {
   return (
     <View style={style.main}>
         <Text style={style.text}>SIGN UP</Text>

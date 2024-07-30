@@ -1,66 +1,66 @@
 import React from 'react'
-import { View, Text ,StyleSheet,TextInput,Button,Image} from 'react-native'
+import { View, Text ,StyleSheet,TextInput,Button, ImageBackground} from 'react-native'
 import { router,Link } from 'expo-router';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import bgImage from '../assets/images/Coffee wallpaper.jpeg';
 
-export default function login() {
+type LoginProps = {
+  navigation: NavigationProp<ParamListBase>;
+};
+
+export default function login({navigation}:LoginProps) {
   return (
-    <View style={style.main}>
-      <Text style={style.text}>Coffee Enyong</Text>
+    <View>
+        <ImageBackground source={bgImage}style={style.container}>
+            <Text style={style.text}>Coffee Enyong</Text>
+            <Text style={style.login}>Login...</Text>
 
-      {/* <View style={style.container}>
-        <Image
-          source={require('../../assets/images/cup.png')}
-          style={style.image}
-        />
-      </View> */}
-      <Text style={style.login}>Login...</Text>
+            <Text style={style.username}>username</Text>
+            <TextInput
+              style={style.input}
+              placeholder='Enter username'
+            />
 
-      <Text style={style.username}>username</Text>
-      <TextInput
-        style={style.input}
-        placeholder='Enter username'
-      />
+            <Text style={style.password}>password</Text>
+            <TextInput
+              style={style.input}
+              placeholder='Enter password'
+              secureTextEntry={true}
+            />
 
-      <Text style={style.password}>password</Text>
-      <TextInput
-        style={style.input}
-        placeholder='Enter password'
-      />
+            <View style={{ width: 150, marginTop: 120, marginLeft: 130 }}>
+              <Button
+                onPress={() => navigation.navigate('Page')}
+                title='Login' color="black" />
+            </View>
 
-      <View style={{ width: 150, marginTop: 120, marginLeft: 130 }}>
-        <Button
-          onPress={() => router.push('/home')}
-          
-          title='Login' color="black" />
-      </View>
+            <Text style={style.signup}>Do you have an account?
+              
+              <Link style={style.link}
+          onPress={() => navigation.navigate('signUp')} href={''}>Sign Up</Link>
+            </Text>
 
-      <Text style={style.signup}>Do you have an account?
-        <Link style={style.link} 
-          href="/sign_up">Sign Up</Link>
-      </Text>
+        </ImageBackground>
     </View>
   )
 }
 
 const style = StyleSheet.create({
-  main:{
-    backgroundColor:'#f4d499',
-    height:'100%',
-  },
   text: {
-    fontSize: 30,
+    fontSize: 35,
     alignItems:'center',
     color: 'black',
-    marginLeft:130,
-    fontWeight:'bold'
+    marginLeft:115,
+    fontWeight:'bold',
+    marginTop:25
   },
   login:{
     fontSize: 50,
     fontWeight: 'bold',
     color: 'black',
-    marginTop: 120,
+    marginTop: 20,
     marginLeft: 40,
-    fontFamily:'serif'
+    fontFamily:'sans-serif'
   },
   input:{
     height: 50,
@@ -99,14 +99,9 @@ const style = StyleSheet.create({
     fontWeight:'bold',
   },
   container: {
-    width: 150,
-    marginLeft:135,
-    marginTop:130
-  },
-  image:{
-    marginTop:-50,
-    width: 400,
-    height: 300,
-    marginLeft:-130
-  },
+    height: 850,
+    width: 650,
+    marginTop:0,
+    opacity:0.8
+  }
 })

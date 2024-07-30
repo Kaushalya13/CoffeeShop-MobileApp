@@ -1,53 +1,55 @@
-import{View,Text,StyleSheet,Button,TouchableOpacity,Image} from 'react-native'
-import React from 'react'
-import { Link, router } from 'expo-router';
+import React from 'react';
+import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
+type IndexProps = {
+  navigation: NavigationProp<ParamListBase>;
+};
 
+export default function index({navigation}:IndexProps) {
+      return (
+        <View style={style.main}>
+          <Text style={style.test}>Welcome to ,</Text>
+            <Text style={style.header}>Relax with Coffee House!</Text>
 
-export default function index() {
-  return (
-    <View style={style.main}>
-      <Text style={style.test}>Welcome to ,</Text>
-      <Text style={style.header}>Relax with Coffee House!</Text>
-
-
-      <View style={style.container}>
-        <Image
-          source={require('../../assets/images/coffee.png')}
-          style={style.image}
-        />
-      </View>
-
-      <Text style={style.test01}>Each coffee bean reflects our commitment to Peruvian coffee products.</Text>
-      
-
-      <View style={style.container}>
-        <TouchableOpacity
-            style={style.button}
-            onPress={() => router.push('/login')}
-          >
-          <Text style={style.buttonText}>Get Start</Text>
-          
-          {/* <Image source={require('../../assets/images/arrow.png')} style={style.logo} /> */}
-          
-        </TouchableOpacity>
         
-      </View>
+            <View style={style.container}>
+              <Image
+                source={require('../assets/images/coffee.png')}
+                style={style.image}
+              />
+            </View>
       
-    </View>
-  )
-}
+            <Text style={style.test01}>Each coffee bean reflects our commitment to Peruvian coffee products.</Text> 
+            
+      
+            <View style={style.container}>
+              <TouchableOpacity
+                  style={style.button}
+                  onPress={() => navigation.navigate('Login')}
+                >
+                <Text style={style.buttonText}>Get Start</Text>
+                
+                {/* <Image source={require('../../assets/images/arrow.png')} style={style.logo} /> */}
+                
+              </TouchableOpacity>
+              
+             </View>
+            
+      </View>
+    );
 
+}
 
 
 const style=StyleSheet.create({
   main:{
-    backgroundColor:'#f4d499',
+    backgroundColor:'#DAB49D',
     height:'100%',
   },
   
   image:{
-    marginTop:-50,
+    marginTop:-15,
     width: 400,
     height: 300,
     marginLeft:-130
@@ -57,7 +59,7 @@ const style=StyleSheet.create({
     marginLeft:30,
     fontWeight:'bold',
     alignItems:'center',
-    top:20,
+    top:50,
     color:'black',
   },
   test01:{
@@ -65,12 +67,12 @@ const style=StyleSheet.create({
     marginLeft:30,
     fontWeight:'bold',
     alignItems:'center',
-    top:70,
+    top:60,
     color:'black',
   },
   header:{
     fontSize:40,
-    top:30,
+    top:70,
     marginLeft:30,
     fontWeight:'bold',
     alignItems:'center',
@@ -84,7 +86,7 @@ const style=StyleSheet.create({
   container: {
     width: 150,
     marginLeft:135,
-    marginTop:130
+    marginTop:160
   },
   button: {
     backgroundColor: 'black',

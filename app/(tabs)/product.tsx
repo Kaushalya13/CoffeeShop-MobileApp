@@ -52,7 +52,7 @@ export default function product() {
 
 const style = StyleSheet.create({
   main:{
-    backgroundColor:'#A8E0B7',
+    backgroundColor:'#f4d499',
     height:'100%',
   },
   text:{
